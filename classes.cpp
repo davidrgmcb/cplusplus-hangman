@@ -1,4 +1,4 @@
-//#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -20,7 +20,7 @@ class gameState {
           while(std::getline(dictionary, word)) {
               wordList.push_back(word);
           }
-          std::cout << "Vector size: " << wordList.size() << '\n';
+          //std::cout << "Vector size: " << wordList.size() << '\n';
           int element = rand() % wordList.size();
           this.answer = wordList[element];
           //std::cout << "Random word: " << wordList[element] << '\n';
@@ -45,14 +45,18 @@ class gameState {
                     return;
                 }
             }
-            else:
+          else { //This construction won't work, need to rethink it.
                 player.isStrike();
+          }
           }
       }
       
       void isGameOver(playerState player) {
           if (player.strikes >= 7) {
               this.isEnd = true;
+              return;
+          }
+          else {
               return;
           }
       }
@@ -74,7 +78,7 @@ class playerState {
       std::vector<char> alreadyGuessed;
       std::string correctlyGuessed('_')
       
-      void getGuess(std::string currentGuess) {
+      void getGuess() {
           this.currentGuess = fgets(currentGuess, currentGuess.max_size, stdin);
           if (isalpha(currentGuess[0]) == 0) {
               std::cout << "Please type one letter, no numbers or symboles\n";
