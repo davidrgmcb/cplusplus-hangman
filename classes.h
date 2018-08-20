@@ -1,11 +1,15 @@
 #include <iostream>
+#include <vector>
 /*#include <fstream>
 #include <string>
-#include <vector>
+
 #include <cstdlib>
 #include <ctime>*/
 
+#ifndef CLASSES_H
+#define CLASSES_H
 
+class playerState;
 
 class gameState {
     private:
@@ -21,6 +25,7 @@ class gameState {
       void isGameOver(playerState player);
       
       void addApostrophes(playerState player);
+};
 
 class playerState {
     public:
@@ -36,3 +41,6 @@ class playerState {
       void updateCorrectlyGuessed(int ii);
       
       void correctlyGuessedApostrophes(int ii);
+};
+
+#endif

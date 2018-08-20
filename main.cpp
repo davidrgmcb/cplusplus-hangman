@@ -4,16 +4,16 @@
 #include <string>
 
 int main() {
-    new classes::playerState player;
-    new classes::gameState game;
+    playerState player = new classes::playerState;
+    gameState game = new classes::gameState;
     game.setAnswer();
     game.fillCorrectlyGuessed(player);
     game.addApostrophes(player);
     while(!game.isEnd) {
-        cout << "" << player.correctlyGuessed;
+        std::cout << "" << player.correctlyGuessed << "\n";
         player.getGuess();
         game.testGuess(player); //Expect this to improperly increment strikes and possibly instantly end the game
         game.isEnd(player);
     }
-    cout << "The answer was " << game.answer; //Being as this is a private variable this may very well not work.
+    std::cout << "The answer was " << game.answer << "\n"; //Being as this is a private variable this may very well not work.
 }

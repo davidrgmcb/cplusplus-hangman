@@ -7,12 +7,12 @@
 #include "classes.h"
 /* wordList class no longer necessary its job is taken up by a vector. Not really sure what class this lives in now? I guess probably gameState? Gotta go in something for proper OO dev.*/
 
-class gameState {
-    private:
-      bool isEnd = false;
-      std::string answer;
+/*class gameState {
+    private:*/
+      classes::gameState isEnd = false;
+      classes::gameState std::string answer("Generic")
       
-      void setAnswer() {
+      void classes::gameState setAnswer() {
           srand(time(NULL));
           std::string word;
           std::vector<std::string> wordList;
@@ -31,12 +31,12 @@ class gameState {
           //std::cout << "Random word: " << answer << '\n';
           }
       
-      void fillCorrectlyGuessed(playerState player) {
-          player.correctlyGuessed.assign(this.answer.length(), '_');
+      void classes::gameState fillCorrectlyGuessed(playerState player) {
+          player.correctlyGuessed.assign(this.answer.length(), '_'); //Encapsulate this
           return;
       }
     
-      void testGuess(playerState player) {
+      void classes::gameState testGuess(playerState player) {
           for (int ii = 0; ii < answer.length(); ii++) {
             if (player.currentGuess[0] == this.answer[ii] {
                 //player.correctlyGuessed[ii] = player.currentGuess[0];
@@ -51,7 +51,7 @@ class gameState {
           }
       }
       
-      void isGameOver(playerState player) {
+      void classes::gameState isGameOver(playerState player) {
           if (player.strikes >= 7) {
               this.isEnd = true;
               return;
@@ -61,7 +61,7 @@ class gameState {
           }
       }
       
-      void addApostrophes(playerState player) {
+      void classes::gameState addApostrophes(playerState player) {
           for (int ii = 0; ii < answer.length(); ii++) {
               if (this.answer[ii] == '\'') {
                   player.correctlyGuessedApostrophes(ii);
@@ -69,16 +69,15 @@ class gameState {
               }
           }
       }
-}
+};
 
-class playerState {
-    public:
-      int strikes = 0;
-      std::string currentGuess('a');
-      std::vector<char> alreadyGuessed;
-      std::string correctlyGuessed('_')
+/*class playerState {
+    public:*/
+      classes::playerState strikes = 0;
+      classes::playerState currentGuess('a');
+      classes::playerState correctlyGuessed('_')
       
-      void getGuess() {
+      void classes::playerState getGuess() {
           this.currentGuess = fgets(currentGuess, currentGuess.max_size, stdin);
           if (isalpha(currentGuess[0]) == 0) {
               std::cout << "Please type one letter, no numbers or symboles\n";
@@ -94,17 +93,17 @@ class playerState {
           this.alreadyGuessed.push_back(currentGuess[0]);
       }
       
-      void isStrike() {
+      void classes::playerState isStrike() {
           this.stirkes++;
       }
       
-      void updateCorrectlyGuessed(int ii) {
+      void classes::playerState updateCorrectlyGuessed(int ii) {
           this.correctlyGuessed[ii] = this.currentGuess[0];
           return;
       }
       
-      void correctlyGuessedApostrophes(int ii) {
+      void classes::playerState correctlyGuessedApostrophes(int ii) {
           this.correctlyGuessed[ii] = '\'';
           return;
       }
-}
+};
