@@ -13,6 +13,10 @@ class PlayerState;
 
 class GameState {
     private:
+      GameState();
+      
+      ~GameState();
+      
       bool isEnd;
       std::string answer;
       
@@ -26,9 +30,6 @@ class GameState {
       
       void addApostrophes(PlayerState player);
       
-      GameState();
-      
-      ~GameState();
 };
 
 #endif

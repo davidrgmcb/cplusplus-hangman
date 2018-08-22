@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cstdio>
 
 #ifndef PLAYERSTATE_H
 #define PLAYERSTATE_H
@@ -11,7 +12,7 @@ class PlayerState {
       std::vector<char> alreadyGuessed;
       std::string correctlyGuessed;
       
-      void getGuess(std::string currentGuess);
+      void getGuess();
       
       void isStrike();
       

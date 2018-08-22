@@ -1,4 +1,4 @@
-CPPFLAGS = -g -O0  #Debug symbols, and no optimization
+CPPFLAGS = -g -O0 -std=c++11  #Debug symbols, and no optimization. c++11 standard.
 
 #-------------------------------------------------------------
 # Makefile Targets
@@ -10,7 +10,7 @@ OBJECTS = GameState.o PlayerState.o
 all: hangman
 
 %.o: %.c $(HEADERS)
-	g++ -c $(CFLAGS) $< -o $@
+	g++ -c $(CPPFLAGS) $< -o $@
 
 hangman: $(OBJECTS)
 	g++ $(OBJECTS) -o $@
