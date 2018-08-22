@@ -1,11 +1,12 @@
-#include "classes.h"
+#include "GameState.h"
+#include "PlayerState.h"
 #include <iostream>
 #include <vector>
 #include <string>
 
 int main() {
-    playerState player = new classes::playerState;
-    gameState game = new classes::gameState;
+    PlayerState player = new PlayerState::PlayerState;
+    GameState game = new GameState::GameState;
     game.setAnswer();
     game.fillCorrectlyGuessed(player);
     game.addApostrophes(player);

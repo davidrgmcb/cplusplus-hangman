@@ -4,8 +4,8 @@ CPPFLAGS = -g -O0  #Debug symbols, and no optimization
 # Makefile Targets
 #-------------------------------------------------------------
 
-HEADERS = classes.h
-OBJECTS = classes.o
+HEADERS = GameState.h PlayerState.h
+OBJECTS = GameState.o PlayerState.o
 
 all: hangman
 

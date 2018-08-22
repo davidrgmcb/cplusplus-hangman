@@ -4,15 +4,16 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-#include "classes.h"
+//#include "playerState.h" may need this may not
+#include "GameState.h"
 /* wordList class no longer necessary its job is taken up by a vector. Not really sure what class this lives in now? I guess probably gameState? Gotta go in something for proper OO dev.*/
 
-/*class gameState {
-    private:*/
-      classes::gameState isEnd = false;
-      classes::gameState std::string answer("Generic")
+GameState::GameState() {
+    isEnd = false;
+    std::string answer("Generic");
+}
       
-      void classes::gameState setAnswer() {
+      void GameState::GameState setAnswer() {
           srand(time(NULL));
           std::string word;
           std::vector<std::string> wordList;
@@ -31,12 +32,12 @@
           //std::cout << "Random word: " << answer << '\n';
           }
       
-      void classes::gameState fillCorrectlyGuessed(playerState player) {
+      void GameState::GameState fillCorrectlyGuessed(PlayerState player) {
           player.correctlyGuessed.assign(this.answer.length(), '_'); //Encapsulate this
           return;
       }
     
-      void classes::gameState testGuess(playerState player) {
+      void GameState::GameState testGuess(PlayerState player) {
           for (int ii = 0; ii < answer.length(); ii++) {
             if (player.currentGuess[0] == this.answer[ii] {
                 //player.correctlyGuessed[ii] = player.currentGuess[0];
@@ -51,7 +52,7 @@
           }
       }
       
-      void classes::gameState isGameOver(playerState player) {
+      void GameState::GameState isGameOver(PlayerState player) {
           if (player.strikes >= 7) {
               this.isEnd = true;
               return;
@@ -61,49 +62,12 @@
           }
       }
       
-      void classes::gameState addApostrophes(playerState player) {
+      void GameState::GameState addApostrophes(playerState player) {
           for (int ii = 0; ii < answer.length(); ii++) {
               if (this.answer[ii] == '\'') {
                   player.correctlyGuessedApostrophes(ii);
                   return;
               }
           }
-      }
-};
-
-/*class playerState {
-    public:*/
-      classes::playerState strikes = 0;
-      classes::playerState currentGuess('a');
-      classes::playerState correctlyGuessed('_')
-      
-      void classes::playerState getGuess() {
-          this.currentGuess = fgets(currentGuess, currentGuess.max_size, stdin);
-          if (isalpha(currentGuess[0]) == 0) {
-              std::cout << "Please type one letter, no numbers or symboles\n";
-              getGuess(std::string currentGuess);
-          }
-          this.currentGuess.pop_back();
-          for (int ii = 0; ii < alreadyGuessed.size(); ii++) {
-              if (currentGuess[0] == alreadyGuessed[ii]) {
-                  std::cout << "You already guessed that, please guess something different\n";
-                  return;
-              }
-          }
-          this.alreadyGuessed.push_back(currentGuess[0]);
-      }
-      
-      void classes::playerState isStrike() {
-          this.stirkes++;
-      }
-      
-      void classes::playerState updateCorrectlyGuessed(int ii) {
-          this.correctlyGuessed[ii] = this.currentGuess[0];
-          return;
-      }
-      
-      void classes::playerState correctlyGuessedApostrophes(int ii) {
-          this.correctlyGuessed[ii] = '\'';
-          return;
       }
 };
