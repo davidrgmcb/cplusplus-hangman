@@ -5,7 +5,7 @@ CPPFLAGS = -g -O0 -std=c++11  #Debug symbols, and no optimization. c++11 standar
 #-------------------------------------------------------------
 
 HEADERS = GameState.h PlayerState.h
-OBJECTS = GameState.o PlayerState.o
+OBJECTS = main.o GameState.o PlayerState.o
 
 all: hangman
 

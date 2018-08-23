@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "PlayerState.h"
+#include <locale>
 
 PlayerState::PlayerState() {
     strikes = 0;
@@ -9,10 +10,10 @@ PlayerState::PlayerState() {
 }
       
       void PlayerState::getGuess() {
-          this->currentGuess = fgets(currentGuess, currentGuess.max_size, stdin); //This is producing headaches, just try cin
+          this->currentGuess = std::cin.get(); //This is producing headaches, just try cin
           if (isalpha(currentGuess[0]) == 0) {
               std::cout << "Please type one letter, no numbers or symboles\n";
-              getGuess(std::string currentGuess);
+              getGuess();
           }
           this->currentGuess.pop_back();
           for (int ii = 0; ii < alreadyGuessed.size(); ii++) {

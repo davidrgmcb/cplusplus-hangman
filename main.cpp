@@ -5,8 +5,8 @@
 #include <string>
 
 int main() {
-    PlayerState player = new PlayerState::PlayerState;
-    GameState game = new GameState::GameState;
+    PlayerState player;
+    GameState game;
     game.setAnswer();
     game.fillCorrectlyGuessed(player);
     game.addApostrophes(player);
