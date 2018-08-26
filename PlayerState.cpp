@@ -10,12 +10,15 @@ PlayerState::PlayerState() {
 }
       
       void PlayerState::getGuess() {
-          this->currentGuess = std::cin.get(); //This is producing headaches, just try cin
-          if (isalpha(currentGuess[0]) == 0) {
-              std::cout << "Please type one letter, no numbers or symboles\n";
+          char guess;
+          std::cin >> guess;
+          this->currentGuess = guess;
+          std::cout << "current guess " << this->currentGuess << "\n";
+          if (isalpha(currentGuess[0]) == false) {
+              std::cout << "Please type one letter, no numbers or symbols\n";
               getGuess();
           }
-          this->currentGuess.pop_back();
+          //this->currentGuess.pop_back();
           for (int ii = 0; ii < alreadyGuessed.size(); ii++) {
               if (currentGuess[0] == alreadyGuessed[ii]) {
                   std::cout << "You already guessed that, please guess something different\n";

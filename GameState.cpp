@@ -30,31 +30,33 @@ GameState::GameState() {
           for(int ii = 0; ii < answer.length(); ii++) {
               this->answer[ii] = tolower(this->answer[ii]);
           }
-          //std::cout << "Random word: " << answer << '\n';
+          std::cout << "Random word: " << answer << '\n';
           }
       
-      void GameState::fillCorrectlyGuessed(PlayerState player) {
+      void GameState::fillCorrectlyGuessed(PlayerState &player) {
           player.correctlyGuessed.assign(this->answer.length(), '_'); //Encapsulate this
           return;
       }
     
-      void GameState::testGuess(PlayerState player) {
-          for (int ii = 0; ii < answer.length(); ii++) {
+      void GameState::testGuess(PlayerState &player) {
+          bool isStrike = true;
+          for (int ii = 0; ii <= answer.length(); ii++) {
             if (player.currentGuess[0] == this->answer[ii]) {
-                //player.correctlyGuessed[ii] = player.currentGuess[0];
                 player.updateCorrectlyGuessed(ii);
-                if (ii == this->answer.length()) {
+                isStrike = false;
+                if (ii >= this->answer.length() && isStrike == false) {
                     return;
                 }
             }
-          else { //This construction won't work, need to rethink it.
+            else if (ii >= this->answer.length() && isStrike == true) { //This construction won't work, need to rethink it.
                 player.isStrike();
-          }
+                return;
+            }
           }
       }
       
-      void GameState::isGameOver(PlayerState player) {
-          if (player.strikes >= 7) {
+      void GameState::isGameOver(PlayerState &player) {
+          if (player.strikes >= 7 || this->answer.compare(player.correctlyGuessed) == 0) {
               this->isEnd = true;
               return;
           }
@@ -63,7 +65,7 @@ GameState::GameState() {
           }
       }
       
-      void GameState::addApostrophes(PlayerState player) {
+      void GameState::addApostrophes(PlayerState &player) {
           for (int ii = 0; ii < answer.length(); ii++) {
               if (this->answer[ii] == '\'') {
                   player.correctlyGuessedApostrophes(ii);

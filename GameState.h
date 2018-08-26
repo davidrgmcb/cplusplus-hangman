@@ -12,23 +12,23 @@
 class PlayerState;
 
 class GameState {
-    private:
+    public:
       GameState();
       
-      ~GameState();
+      //~GameState();
       
       bool isEnd;
       std::string answer;
       
       void setAnswer();
       
-      void fillCorrectlyGuessed(PlayerState player);
+      void fillCorrectlyGuessed(PlayerState &player);
     
-      void testGuess(PlayerState player);
+      void testGuess(PlayerState &player);
       
-      void isGameOver(PlayerState player);
+      void isGameOver(PlayerState &player);
       
-      void addApostrophes(PlayerState player);
+      void addApostrophes(PlayerState &player);
       
 };
 
