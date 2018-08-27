@@ -4,10 +4,9 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-//#include "playerState.h" may need this may not
 #include "GameState.h"
 #include "PlayerState.h"
-/* wordList class no longer necessary its job is taken up by a vector. Not really sure what class this lives in now? I guess probably gameState? Gotta go in something for proper OO dev.*/
+/* wordList class no longer necessary its job is taken up by a vector. Not really sure what class this lives in now? I guess probably GameState? Gotta go in something for proper OO dev.*/
 
 GameState::GameState() {
     isEnd = false;
@@ -30,7 +29,7 @@ GameState::GameState() {
           for(int ii = 0; ii < answer.length(); ii++) {
               this->answer[ii] = tolower(this->answer[ii]);
           }
-          std::cout << "Random word: " << answer << '\n';
+          //std::cout << "Random word: " << answer << '\n';
           }
       
       void GameState::fillCorrectlyGuessed(PlayerState &player) {
@@ -72,4 +71,12 @@ GameState::GameState() {
                   return;
               }
           }
+      }
+      
+      bool GameState::revealEndStatus() {
+          return isEnd;
+      }
+      
+      std::string GameState::revealAnswer() {
+          return answer;
       }

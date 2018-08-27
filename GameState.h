@@ -12,13 +12,12 @@
 class PlayerState;
 
 class GameState {
-    public:
-      GameState();
-      
-      //~GameState();
-      
+  private:    
       bool isEnd;
       std::string answer;
+      
+  public:
+      GameState();
       
       void setAnswer();
       
@@ -29,6 +28,10 @@ class GameState {
       void isGameOver(PlayerState &player);
       
       void addApostrophes(PlayerState &player);
+      
+      bool revealEndStatus();
+      
+      std::string revealAnswer(); //Honestly this isn't even any better but I'd need to understand encapsulation better to have a better solution than just a getter.
       
 };
 
